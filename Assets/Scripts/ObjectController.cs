@@ -9,6 +9,7 @@ public class ObjectController : MonoBehaviour
     public bool eggIn;
     private Rigidbody rb;
     private Vector3 rotation;
+    private GameManager gm;
     
 
     // Start is called before the first frame update
@@ -18,7 +19,10 @@ public class ObjectController : MonoBehaviour
     }
     private void Update()
     {
-        rotation = new Vector3(-Input.GetAxis("Vertical") * rotationspeed * Time.deltaTime, 0, Input.GetAxis("Horizontal") * rotationspeed * Time.deltaTime);
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
+        if (gm.isPlaying) rotation = new Vector3(-Input.GetAxis("Vertical") * rotationspeed * Time.deltaTime, 0, Input.GetAxis("Horizontal") * rotationspeed * Time.deltaTime);
+        else rotation = Vector3.zero;
     }
     // Update is called once per frame
     void FixedUpdate()

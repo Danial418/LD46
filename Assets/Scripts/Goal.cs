@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    public float endDelay;
+    private GameManager gm;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class Goal : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            Debug.Log("finish");
+            gm.FinishLevel();
         }
     }
 }
