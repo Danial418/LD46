@@ -10,8 +10,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Beak
+    second: {fileID: 2100000, guid: d86ac1f3dda32440781f67aeacbdd9fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: d86ac1f3dda32440781f67aeacbdd9fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: No Name
     second: {fileID: 2100000, guid: c1af5fb83369b4bf482f9f7bf6adc5a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: d86ac1f3dda32440781f67aeacbdd9fb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: orange
+    second: {fileID: 2100000, guid: d86ac1f3dda32440781f67aeacbdd9fb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

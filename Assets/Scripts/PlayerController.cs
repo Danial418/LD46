@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public GameObject eggCellsPrefab;
+    public bool mainPlayer;
     public float breakForce = 10;
+    public float soundForce = 2;
     private GameObject eggCells;
     private Rigidbody[] rbs;
     private Rigidbody rb;
+    private AudioSource audio;
     private GameManager gm;
 
     // Start is called before the first frame update
@@ -17,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,7 +34,10 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.impulse.magnitude > breakForce || collision.gameObject.tag == "Ground")
+        
+            audio.Play();
+        
+            if (collision.impulse.magnitude > breakForce || collision.gameObject.tag == "Ground")
         {
             eggCells = Instantiate(eggCellsPrefab, transform.position, transform.rotation);
             rbs = eggCells.GetComponentsInChildren<Rigidbody>();
@@ -39,7 +46,11 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = transform.GetComponent<Rigidbody>().velocity;
             }
             gameObject.SetActive(false);
-            Invoke("Restart", 2f);
+            if (mainPlayer)
+            {
+                Invoke("Restart", 2f);
+
+            }
 
         }
     }
